@@ -1,4 +1,4 @@
-# seek-degas
+# seekdegas
 
 This is a simple library for scraping the SEC's EDGAR resource. Companies like seekinf charge for full access to the data, despite it being free on their FTP server.
 
