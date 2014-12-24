@@ -1,6 +1,6 @@
 import urllib2
 from datetime import date
-from dateutil.parser import parse
+from .sic import sicIndex
 
 """
 Function query takes in:
@@ -38,8 +38,12 @@ def query(start = 1993, end = int(date.today().year), forms = None, company = No
             cik_inc = fdata[0] == cik or cik is None
             company_inc = company is None or fdata[1].lower() == company.lower()
             form_inc = forms is None or fdata[2] in forms
+            try:
+               sic_inc = sicIndex[fdata[0]] == sic or sic is None
+            except:
+               sic_inc = False # the index might be out of date and missing a company
 
-            if cik_inc and company_inc and form_inc:
+            if cik_inc and company_inc and form_inc and sic_inc:
                # if there is a keyphrase search, do that now
                if keyphrases is not None:
                   try:
