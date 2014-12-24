@@ -1,6 +1,6 @@
 # seekdegas
 
-This is a simple library for scraping the SEC's EDGAR resource. Companies like <a href="https://seekinf.co">seekinf</a> charge for full access to the data, despite it being free on their FTP server.
+This is a simple library for scraping the SEC's EDGAR resource. Companies like <a href="https://www.seekinf.co">seekinf</a> charge for full access to the data, despite it being free on their FTP server.
 
 Feel free to contribute; there is quite a bit of functionality that is still missing. Some of it is because I don't have enough experience with the data to know what's going on with it.
 
