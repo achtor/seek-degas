@@ -1,0 +1,1 @@
+from .edgarquery import query

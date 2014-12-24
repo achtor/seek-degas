@@ -3,7 +3,7 @@ from datetime import date
 from dateutil.parser import parse
 
 """
-Function edgarquery takes in:
+Function query takes in:
  - start, a numerical year since 1993. Defaults to 1993.
  - end, a numerical year between start and the present year.
  - form, a list of strings of form types to search for. (See list of form-types) Defaults
@@ -16,7 +16,7 @@ Function edgarquery takes in:
    are searched for.
  - keyphrases, a list of strings of exact phrases to search for
 """
-def edgarquery(start = 1993, end = int(date.today().year), forms = None, company = None,
+def query(start = 1993, end = int(date.today().year), forms = None, company = None,
                cik = None, sic = None, keyphrases = None):
    # list of results
    results = []
@@ -55,5 +55,4 @@ def edgarquery(start = 1993, end = int(date.today().year), forms = None, company
                      # do nothing and just keep going; some files are just missing.
                results.append({'cik': fdata[0], 'company': fdata[1], 'form': fdata[2],
                                'date': fdata[3], 'url': 'ftp://ftp.sec.gov/' + fdata[4]})
-               print str(results[-1])
-
+   return results
