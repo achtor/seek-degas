@@ -1,7 +1,5 @@
 import urllib2
 from datetime import date
-from .sic import sicIndex
-
 """
 Function query takes in:
  - start, a numerical year since 1993. Defaults to 1993.
@@ -61,3 +59,4 @@ def query(start = 1993, end = int(date.today().year), forms = None, company = No
                results.append({'cik': fdata[0], 'company': fdata[1], 'form': fdata[2],
                                'date': fdata[3], 'url': 'ftp://ftp.sec.gov/' + fdata[4]})
    return results
+
