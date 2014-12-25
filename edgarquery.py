@@ -24,6 +24,7 @@ def query(start = 1993, end = int(date.today().year), forms = None, company = No
    # Cycle through all the FTP holdings between the two dates
    for year in range(start, end + 1):
       for q in range(1,5):
+         print 'Year ' + str(year) + ' quarter ' + str(q)
          try:
             f = urllib2.urlopen('ftp://ftp.sec.gov/edgar/full-index/' + str(year) + '/QTR' 
                                  + str(q) + '/master.idx')
