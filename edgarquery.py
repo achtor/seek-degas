@@ -1,19 +1,5 @@
 import urllib2
 from datetime import date
-"""
-Function query takes in:
- - start, a numerical year since 1993. Defaults to 1993.
- - end, a numerical year between start and the present year.
- - form, a list of strings of form types to search for. (See list of form-types) Defaults
-   to None, in which case all forms are searched for.
- - company, the desired company exact name (no punctuation, case-insensitive), as a string.
-   Defaults to none, in which case all companies are searched for.
- - cik, the desired CIK number as a string. Defaults to None, in which case all CIK numbers 
-   are searched for.
- - sic, the desired SIC number as a string. Defaults to None, in which case all SIC numbers
-   are searched for.
- - keyphrases, a list of strings of exact phrases to search for
-"""
 def edgar(func):
    def inner(start = 1993, end = int(date.today().year), forms = None, company = None,
                cik = None, sic = None, keyphrases = None, **kwargs):
