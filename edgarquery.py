@@ -63,3 +63,18 @@ def query(fdata):
    return {'cik': fdata[0], 'company': fdata[1], 'form': fdata[2],
           'date': fdata[3], 'url': 'ftp://ftp.sec.gov/' + fdata[4]}
 
+@edgar
+def download(fdata, regex = None, regopt = None, filepath = '', prefix = '')
+   try: 
+      f = urllib2.urlopen('ftp://ftp.sec.gov/' + fdata[4])
+   except:
+      return
+   if regex is not None:
+      wtext = re.findall(regex, f.read(), regopt)
+      if len(wtext) == 0:
+         return
+   else:
+      wtext = f.read()
+      with open(filepath + prefix + fdata[0] + '-' + fdata[3] + '.txt','w'):
+         g.write(wtext)
+
