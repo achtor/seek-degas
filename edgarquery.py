@@ -16,7 +16,7 @@ Function query takes in:
 """
 def edgar(func):
    def inner(start = 1993, end = int(date.today().year), forms = None, company = None,
-               cik = None, sic = None, keyphrases = None):
+               cik = None, sic = None, keyphrases = None, **kwargs):
       # list of results
       results = []
 
@@ -55,7 +55,7 @@ def edgar(func):
                      except:
                         continue
                         # do nothing and just keep going; some files are just missing.
-                  yield func(fdata)
+                  yield func(fdata,**kwargs)
    return inner
 
 @edgar
@@ -64,7 +64,7 @@ def query(fdata):
           'date': fdata[3], 'url': 'ftp://ftp.sec.gov/' + fdata[4]}
 
 @edgar
-def download(fdata, regex = None, regopt = None, filepath = '', prefix = '')
+def download(fdata,regex = None, regopt = None, filepath = '', prefix = ''):
    try: 
       f = urllib2.urlopen('ftp://ftp.sec.gov/' + fdata[4])
    except:
